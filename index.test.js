@@ -44,13 +44,19 @@ describe("[Exercise 4] Counter", () => {
     counter = new utils.Counter(3); // each test must start with a fresh couter
   });
   test("[6] the FIRST CALL of counter.countDown returns the initial count", () => {
-    expect(false).toBe(true);
+    expect(counter.countDown()).toBe(3);
   });
   test("[7] the SECOND CALL of counter.countDown returns the initial count minus one", () => {
-    expect(false).toBe(true);
+    counter.countDown();
+    expect(counter.countDown()).toBe(2);
   });
   test("[8] the count eventually reaches zero but does not go below zero", () => {
-    expect(false).toBe(true);
+    counter.countDown();
+    counter.countDown();
+    counter.countDown();
+    counter.countDown();
+    counter.countDown();
+    expect(counter.countDown()).toBe(0);
   });
 });
 
@@ -60,22 +66,35 @@ describe("[Exercise 5] Seasons", () => {
     seasons = new utils.Seasons(); // each test must start with fresh seasons
   });
   test('[9] the FIRST call of seasons.next returns "summer"', () => {
-    expect(false).toBe(true);
+    expect(seasons.next()).toBe("summer");
   });
   test('[10] the SECOND call of seasons.next returns "fall"', () => {
-    expect(false).toBe(true);
+    seasons.next();
+    expect(seasons.next()).toBe("fall");
   });
   test('[11] the THIRD call of seasons.next returns "winter"', () => {
-    expect(false).toBe(true);
+    seasons.next();
+    seasons.next();
+    expect(seasons.next()).toBe("winter");
   });
   test('[12] the FOURTH call of seasons.next returns "spring"', () => {
-    expect(false).toBe(true);
+    seasons.next();
+    seasons.next();
+    seasons.next();
+    expect(seasons.next()).toBe("spring");
   });
   test('[13] the FIFTH call of seasons.next returns again "summer"', () => {
-    expect(false).toBe(true);
+    seasons.next();
+    seasons.next();
+    seasons.next();
+    seasons.next();
+    expect(seasons.next()).toBe("summer");
   });
   test('[14] the 40th call of seasons.next returns "spring"', () => {
-    expect(false).toBe(true);
+    for (let i = 0; i < 39; i++) {
+      seasons.next();
+    }
+    expect(seasons.next()).toBe("spring");
   });
 });
 

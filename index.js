@@ -7,7 +7,6 @@
  * trimProperties({ name: '  jane  ' }) // returns a new object { name: 'jane' }
  */
 function trimProperties(obj) {
-  // ✨ implement
   const result = {};
   for (let values in obj) {
     result[values] = obj[values].trim();
@@ -24,7 +23,6 @@ function trimProperties(obj) {
  * trimPropertiesMutation({ name: '  jane  ' }) // returns the object mutated in place { name: 'jane' }
  */
 function trimPropertiesMutation(obj) {
-  // ✨ implement
   for (let values in obj) {
     obj[values] = obj[values].trim();
   }
@@ -40,7 +38,6 @@ function trimPropertiesMutation(obj) {
  * findLargestInteger([{ integer: 1 }, { integer: 3 }, { integer: 2 }]) // returns 3
  */
 function findLargestInteger(integers) {
-  // ✨ implement
   return Math.max(...integers.map((obj) => obj.integer));
   /*
     let result = integers[0].integer
@@ -60,8 +57,8 @@ class Counter {
    */
   constructor(initialNumber) {
     // ✨ initialize whatever properties are needed
+    this.count = initialNumber;
   }
-
   /**
    * [Exercise 4B] Counter.prototype.countDown counts down to zero
    * @returns {number} - the next count, does not go below zero
@@ -75,7 +72,11 @@ class Counter {
    * counter.countDown() // returns 0
    */
   countDown() {
-    // ✨ implement
+    const currentCount = this.count;
+    if (currentCount > 0) {
+      this.count--;
+    }
+    return currentCount;
   }
 }
 
@@ -84,7 +85,8 @@ class Seasons {
    * [Exercise 5A] Seasons creates a seasons object
    */
   constructor() {
-    // ✨ initialize whatever properties are needed
+    this.seasons = ["summer", "fall", "winter", "spring"];
+    this.currentSeason = 0;
   }
 
   /**
@@ -100,7 +102,9 @@ class Seasons {
    * seasons.next() // returns "summer"
    */
   next() {
-    // ✨ implement
+    const season = this.seasons.shift();
+    this.seasons.push(season);
+    return season;
   }
 }
 
